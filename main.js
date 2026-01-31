@@ -1373,7 +1373,7 @@ const DB_FILES = 'download_files';
 const DB_DOWNLOADS = 'download_history';
 
  const supabaseUrl = 'https://ptotukjsupfsjwzrxkky.supabase.co';
- const supabaseKey = 'DÁN_MÃ_ANON_CỦA_TRIẾT_VÀO_ĐÂY';
+ const supabaseKey = '07430e6f-e4cb-4899-a5da-7c7a9c03595f';
  const USE_CLOUD = typeof supabase !== 'undefined' && typeof supabaseKey === 'string' && !supabaseKey.includes('DÁN_MÃ_ANON_CỦA_TRIẾT_VÀO_ĐÂY');
  const _supabase = (typeof supabase !== 'undefined') ? supabase.createClient(supabaseUrl, supabaseKey) : null;
 

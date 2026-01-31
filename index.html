@@ -37,11 +37,11 @@
     <meta name="twitter:image" content="https://minthub.com/images/banner-share.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest"> -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest"> -->
     
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -283,88 +283,6 @@
         </div>
     </section>
 
-    <!-- Welcome Notification -->
-    <div id="welcomeNotification" class="welcome-notification">
-        <div class="welcome-content">
-            <div class="welcome-header">
-                <div class="welcome-icon">
-                    <i class="fa-solid fa-sparkles"></i>
-                </div>
-                <div class="welcome-title">
-                    <h3>Chào mừng đến với MINT Hub! 🎉</h3>
-                    <p>Nền tảng chia sẻ file miễn phí và chất lượng</p>
-                </div>
-                <button class="welcome-close" onclick="closeWelcomeNotification()">
-                    <i class="fa-solid fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="welcome-body">
-                <div class="welcome-features">
-                    <div class="feature-item">
-                        <i class="fa-solid fa-download"></i>
-                        <div>
-                            <h4>Tải File Miễn Phí</h4>
-                            <p>Hàng ngàn file game, phần mềm, tài liệu chất lượng cao</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item">
-                        <i class="fa-solid fa-search"></i>
-                        <div>
-                            <h4>Tìm Kiếm Dễ Dàng</h4>
-                            <p>Sử dụng thanh tìm kiếm để nhanh chóng tìm được file cần thiết</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item">
-                        <i class="fa-solid fa-filter"></i>
-                        <div>
-                            <h4>Lọc Theo Danh Mục</h4>
-                            <p>Chọn danh mục Game, Phần mềm, hoặc Tài liệu để xem file theo nhu cầu</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item">
-                        <i class="fa-solid fa-star"></i>
-                        <div>
-                            <h4>File HOT Nổi Bật</h4>
-                            <p>Xem các file được tải nhiều nhất ở mục HOT trên cùng</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="welcome-tips">
-                    <h4><i class="fa-solid fa-lightbulb"></i> Mẹo sử dụng:</h4>
-                    <ul>
-                        <li>Click vào file để xem chi tiết và tải về</li>
-                        <li>Sử dụng bộ lọc để tìm file theo danh mục cụ thể</li>
-                        <li>File được cập nhật liên tục mỗi ngày</li>
-                        <li>Admin có thể đăng nhập để quản lý file</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="welcome-footer">
-                <div class="welcome-actions">
-                    <button class="btn-primary" onclick="closeWelcomeNotification()">
-                        <i class="fa-solid fa-rocket"></i>
-                        Bắt đầu khám phá
-                    </button>
-                    <button class="btn-secondary" onclick="showTourGuide()">
-                        <i class="fa-solid fa-question-circle"></i>
-                        Hướng dẫn chi tiết
-                    </button>
-                </div>
-                <div class="welcome-remember">
-                    <label>
-                        <input type="checkbox" id="dontShowAgain" onchange="dontShowWelcomeAgain()">
-                        <span>Không hiển thị lại trong 1 giờ</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Section 1: HOT Files -->
     <section class="top-services" id="game-pc">
@@ -463,49 +381,6 @@
         </div>
     </div>
 
-    <!-- Modal AI Support -->
-    <div id="aiSupportModal" class="modal">
-        <div class="modal-content" style="max-width: 800px; width: 90%;">
-            <div class="modal-header">
-                <h3><i class="fa-solid fa-robot"></i> AI Hỗ Trợ Thông Minh</h3>
-                <span class="close-modal" onclick="closeAISupport()">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="chatContainer" style="height: 400px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; background: var(--bg-secondary); margin-bottom: 15px;">
-                    <div class="ai-message" style="margin-bottom: 15px;">
-                        <div style="display: flex; align-items: flex-start; gap: 10px;">
-                            <div style="background: var(--primary-color); color: #000; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
-                                AI
-                            </div>
-                            <div style="background: var(--card-bg); padding: 12px 15px; border-radius: 12px; max-width: 70%;">
-                                Xin chào! Tôi là trợ lý AI của File Download Hub. Tôi có thể giúp bạn tìm kiếm file, hướng dẫn tải, và giải đáp các câu hỏi về nền tảng. Bạn cần hỗ trợ gì?
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="display: flex; gap: 10px;">
-                    <input type="text" id="aiInput" placeholder="Nhập câu hỏi của bạn..." style="flex: 1; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--card-bg); color: var(--text-color);" onkeypress="handleAIKeyPress(event)">
-                    <button class="btn-primary" onclick="sendAIMessage()">
-                        <i class="fa-solid fa-paper-plane"></i> Gửi
-                    </button>
-                </div>
-                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Tìm game PC hay nhất')">
-                        🎮 Game PC hay nhất
-                    </button>
-                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Hướng dẫn tải file')">
-                        📥 Hướng dẫn tải
-                    </button>
-                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Phần mềm văn phòng')">
-                        📄 Phần mềm văn phòng
-                    </button>
-                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Tài liệu học lập trình')">
-                        📚 Tài liệu IT
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Alert Box -->
     <div id="alertBox" class="alert-box"></div>
@@ -515,47 +390,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="main.js"></script>
     
-    <!-- Debug Script -->
-    <script>
-        // Debug script để kiểm tra localStorage và render
-        document.addEventListener('DOMContentLoaded', function() {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('debug') !== '1') return;
-
-            console.log('=== DEBUG INDEX.HTML ===');
-            
-            // Kiểm tra localStorage
-            const DB_FILES = 'download_files';
-            const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
-            console.log('Files in localStorage:', files.length);
-            console.log('Files data:', files);
-            
-            // Kiểm tra elements
-            const filesGrid = document.getElementById('filesGrid');
-            const hotFilesGrid = document.getElementById('hotFilesGrid');
-            console.log('filesGrid element:', filesGrid);
-            console.log('hotFilesGrid element:', hotFilesGrid);
-            
-            // Nếu có files mà grid trống, render thủ công
-            if (files.length > 0 && filesGrid && filesGrid.innerHTML.trim() === '') {
-                console.log('Grid is empty, rendering manually...');
-                
-                filesGrid.innerHTML = files.map(f => `
-                    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 5px;">
-                        <h3>${f.name}</h3>
-                        <p><strong>Category:</strong> ${f.category}</p>
-                        <p><strong>Size:</strong> ${f.size}</p>
-                        <p><strong>Downloads:</strong> ${f.downloads}</p>
-                        <p><strong>Description:</strong> ${f.desc}</p>
-                        <a href="${f.link}" style="background: #007bff; color: white; padding: 10px; text-decoration: none; border-radius: 3px;">Tải về</a>
-                    </div>
-                `).join('');
-                
-                console.log('Manual render completed!');
-            }
-            
-            console.log('=== END DEBUG ===');
-        });
-    </script>
 </body>
 </html>
