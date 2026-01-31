@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quick Add Product</title>
+    <style>
+        body { font-family: Arial; padding: 20px; text-align: center; }
+        .btn { padding: 15px 30px; background: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; margin: 10px; }
+        .btn:hover { background: #0056b3; }
+        .status { margin: 20px 0; padding: 10px; background: #f8f9fa; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Thêm sản phẩm nhanh</h1>
+    
+    <div class="status" id="status">Đang kiểm tra...</div>
+    
+    <button class="btn" onclick="addFlorentino()">➕ Thêm ADD ON FLORENTINO</button>
+    <button class="btn" onclick="addSample()">📦 Thêm sản phẩm mẫu</button>
+    <button class="btn" onclick="checkData()">🔍 Kiểm tra dữ liệu</button>
+    <button class="btn" onclick="goToIndex()">🏠 Về trang chủ</button>
+    
+    <script>
+        const DB_FILES = 'download_files';
+        
+        function checkData() {
+            const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
+            document.getElementById('status').innerHTML = `
+                <strong>📊 Tổng số file:</strong> ${files.length}<br>
+                <strong>📝 Chi tiết:</strong><br>
+                ${files.map(f => `• ${f.name} (${f.category})`).join('<br>') || 'Chưa có file nào'}
+            `;
+        }
+        
+        function addFlorentino() {
+            const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
+            
+            const florentino = {
+                id: 'FILE' + Date.now(),
+                name: 'ADD ON FLORENTINO',
+                category: 'game-mod',
+                size: '17 KB',
+                downloads: 0,
+                viewCount: 100,
+                link: 'https://link2m.com/38PhqAWu',
+                desc: 'ccaamf kiếm sắt chuột phải (hình ngắm trên đt) để sử dụng kĩ năng, hoặc đánh thường',
+                image: 'https://oneesports.blob.core.windows.net/cdn-data/sites/4/2021/08/florentino-1.jpg'
+            };
+            
+            files.push(florentino);
+            localStorage.setItem(DB_FILES, JSON.stringify(files));
+            
+            document.getElementById('status').innerHTML = `✅ Đã thêm ADD ON FLORENTINO! Tổng số: ${files.length}`;
+            checkData();
+        }
+        
+        function addSample() {
+            const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
+            
+            const sample = {
+                id: 'FILE' + (Date.now() + 1),
+                name: 'Photoshop 2024 Full',
+                category: 'soft-office',
+                size: '3.2 GB',
+                downloads: 1250,
+                viewCount: 5000,
+                link: 'https://example.com/photoshop',
+                desc: 'Phần mềm thiết kế đồ họa chuyên nghiệp',
+                image: 'https://via.placeholder.com/300x200/6C757D/FFFFFF?text=Photoshop+2024'
+            };
+            
+            files.push(sample);
+            localStorage.setItem(DB_FILES, JSON.stringify(files));
+            
+            document.getElementById('status').innerHTML = `✅ Đã thêm Photoshop 2024! Tổng số: ${files.length}`;
+            checkData();
+        }
+        
+        function goToIndex() {
+            window.location.href = 'index.html';
+        }
+        
+        // Auto check khi load trang
+        checkData();
+    </script>
+</body>
+</html>

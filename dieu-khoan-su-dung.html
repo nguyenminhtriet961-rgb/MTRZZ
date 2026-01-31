@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điều khoản sử dụng - File Download Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .terms-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .terms-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .terms-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .terms-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .terms-section {
+            margin-bottom: 40px;
+        }
+        
+        .terms-section h2 {
+            color: var(--primary-color);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .terms-section h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+        
+        .terms-section p, .terms-section li {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .terms-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .terms-section li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: rgba(255, 77, 77, 0.1);
+            border-left: 4px solid var(--red-out);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .terms-container {
+                padding: 20px 15px;
+            }
+            
+            .terms-content {
+                padding: 25px;
+            }
+            
+            .terms-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-gamepad-modern"></i>
+                        <span>File Hub</span>
+                    </a>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm file, tài liệu...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-icon" id="downloadsBtn" title="Lịch sử tải">
+                            <i class="fa-solid fa-download"></i>
+                            <span class="downloads-badge" id="downloadsBadge">0</span>
+                        </button>
+                        <button class="btn-icon" id="loginBtn" title="Đăng nhập">
+                            <i class="fa-solid fa-user"></i>
+                        </button>
+                        <button class="btn-icon" id="theme-toggle" title="Đổi theme">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html"><i class="fa-solid fa-home"></i> Trang chủ</a></li>
+                    <li class="nav-item"><a href="about.html"><i class="fa-solid fa-user"></i> Giới thiệu</a></li>
+                    <li class="nav-item"><a href="dieu-khoan-su-dung.html" class="active"><i class="fa-solid fa-file-contract"></i> Điều khoản</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="terms-container">
+        <div class="terms-header">
+            <h1><i class="fa-solid fa-file-contract"></i> ĐIỀU KHOẢN SỬ DỤNG</h1>
+            <p>Vui lòng đọc kỹ các điều khoản trước khi sử dụng dịch vụ của chúng tôi</p>
+        </div>
+
+        <div class="terms-content">
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-info-circle"></i> Giới thiệu</h2>
+                <p>Chào mừng bạn đến với File Download Hub! Trang web này được tạo ra bởi Nguyễn Minh Triết - một sinh viên IT đam mê công nghệ, với mục đích chia sẻ tài nguyên học tập và làm việc cho cộng đồng.</p>
+                
+                <div class="highlight-box">
+                    <strong>Mục tiêu:</strong> Cung cấp một nền tảng an toàn, miễn phí để mọi người có thể chia sẻ và tải các file hữu ích cho học tập, làm việc và giải trí.
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-check-circle"></i> Điều khoản sử dụng</h2>
+                
+                <h3>1. Quy định chung</h3>
+                <ul>
+                    <li>Bạn phải đủ 18 tuổi hoặc có sự đồng ý của phụ huynh khi sử dụng trang web</li>
+                    <li>Mọi thông tin bạn cung cấp phải chính xác và trung thực</li>
+                    <li>Bạn chịu trách nhiệm hoàn toàn với tài khoản của mình</li>
+                    <li>Không sử dụng dịch vụ cho các mục đích bất hợp pháp</li>
+                </ul>
+
+                <h3>2. Quy định về tải file</h3>
+                <ul>
+                    <li>Chỉ tải các file có nội dung phù hợp, hợp pháp</li>
+                    <li>Không tải file có chứa virus, malware hoặc phần mềm độc hại</li>
+                    <li>Tôn trọng bản quyền của tác giả</li>
+                    <li>Không sử dụng file cho mục đích thương mại nếu không có quyền</li>
+                </ul>
+
+                <h3>3. Quy định về chia sẻ file</h3>
+                <ul>
+                    <li>Không chia sẻ file có nội dung nhạy cảm, bạo lực, khiêu dâm</li>
+                    <li>Không chia sẻ file vi phạm bản quyền nghiêm trọng</li>
+                    <li>Không chia sẻ file chứa mã độc hoặc virus</li>
+                    <li>Chịu trách nhiệm với nội dung file bạn chia sẻ</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-shield-alt"></i> Bảo mật thông tin</h2>
+                <p>Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn:</p>
+                <ul>
+                    <li>Không bán hay chia sẻ thông tin cá nhân cho bên thứ ba</li>
+                    <li>Chỉ thu thập thông tin cần thiết để cải thiện dịch vụ</li>
+                    <li>Sử dụng các biện pháp bảo mật để bảo vệ dữ liệu</li>
+                    <li>Bạn có quyền yêu cầu xóa thông tin cá nhân bất cứ lúc nào</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-ban"></i> Nội dung bị cấm</h2>
+                <div class="warning-box">
+                    <p><strong>CAM KẾT KHÔNG chia sẻ các nội dung sau:</strong></p>
+                    <ul>
+                        <li>Phần mềm crack, keygen, tool bẻ khóa</li>
+                        <li>File chứa virus, malware, ransomware</li>
+                        <li>Nội dung khiêu dâm, đồi trụy</li>
+                        <li>Tài liệu chính trị nhạy cảm</li>
+                        <li>Thông tin cá nhân của người khác</li>
+                        <li>Nội dung vi phạm pháp luật Việt Nam</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-exclamation-triangle"></i> Miễn trừ trách nhiệm</h2>
+                <p>File Download Hub là nền tảng chia sẻ cộng đồng, chúng tôi:</p>
+                <ul>
+                    <li>Không chịu trách nhiệm về nội dung cụ thể của từng file</li>
+                    <li>Không đảm bảo file luôn an toàn 100% (hãy kiểm tra bằng antivirus)</li>
+                    <li>Không chịu trách nhiệm nếu bạn sử dụng file sai mục đích</li>
+                    <li>Có quyền xóa file vi phạm điều khoản mà không cần báo trước</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <strong>Lời khuyên:</strong> Luôn quét virus bằng phần mềm diệt virus trước khi mở file tải về!
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-gavel"></i> Vi phạm điều khoản</h2>
+                <p>Nếu phát hiện vi phạm, chúng tôi có quyền:</p>
+                <ul>
+                    <li>Cảnh báo hoặc khóa tài khoản tạm thời</li>
+                    <li>Xóa các file vi phạm</li>
+                    <li>Khóa tài khoản vĩnh viễn cho các vi phạm nghiêm trọng</li>
+                    <li>Báo cáo cơ quan chức năng nếu cần thiết</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-sync"></i> Thay đổi điều khoản</h2>
+                <p>Chúng tôi có thể cập nhật điều khoản sử dụng theo thời gian để phù hợp với sự phát triển của dịch vụ. Mọi thay đổi sẽ được thông báo trên trang web.</p>
+                <p>Bạn nên kiểm tra lại điều khoản định kỳ để cập nhật các quy định mới nhất.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fa-solid fa-envelope"></i> Liên hệ</h2>
+                <p>Nếu bạn có câu hỏi hoặc cần báo cáo vi phạm, vui lòng liên hệ:</p>
+                <ul>
+                    <li><strong>Email:</strong> nguyenminhtriet.it@gmail.com</li>
+                    <li><strong>Zalo:</strong> 038.353.9399</li>
+                    <li><strong>Telegram:</strong> @nguyenminhtriet</li>
+                </ul>
+            </div>
+
+            <div class="last-updated">
+                <p><i class="fa-solid fa-calendar"></i> Cập nhật lần cuối: 28/01/2026</p>
+                <p><i class="fa-solid fa-user"></i> Người tạo điều khoản: Nguyễn Minh Triết</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-info-circle"></i> Thông tin</h4>
+                    <ul>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="#" onclick="openAISupport()">AI hỗ trợ</a></li>
+                        <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                        <li><a href="dieu-khoan-su-dung.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-headset"></i> Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="https://zalo.me/0383539399" target="_blank"><i class="fa-brands fa-zalo"></i> Zalo: 038.353.9399</a></li>
+                        <li><a href="https://t.me/nguyenminhtriet" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
+                        <li><a href="mailto:nguyenminhtriet.it@gmail.com"><i class="fa-solid fa-envelope"></i> Email hỗ trợ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-link"></i> Mạng xã hội</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com/nguyenminhtriet.it" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://linkedin.com/in/nguyenminhtriet" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/nguyenminhtriet" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://t.me/nguyenminhtriet" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 File Download Hub by Nguyễn Minh Triết. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

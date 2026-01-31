@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nguyễn Minh Triết - Dịch vụ nạp thẻ, nạp game uy tín | Tool Mod | Source Code</title>
+    <meta name="description" content="Nguyễn Minh Triết - Dịch vụ nạp thẻ, nạp game đa nền tảng. Tool/Mod Android, iOS, PC và source code sản phẩm số. Báo giá nhanh qua inbox, không cần đăng ký.">
+    <meta name="keywords" content="Nguyễn Minh Triết, nạp game uy tín, nạp thẻ, tool mod, tool android, tool ios, tool pc, source code web game bài, báo giá qua inbox">
+    <meta name="author" content="Nguyễn Minh Triết">
+    <meta name="theme-color" content="#00d084">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- PWA Manifest -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MINT Hub">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-navbutton-color" content="#00d084">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://minthub.com/">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://minthub.com/">
+    <meta property="og:title" content="Nguyễn Minh Triết - Dịch vụ nạp thẻ, nạp game uy tín">
+    <meta property="og:description" content="Dịch vụ nạp thẻ, nạp game đa nền tảng. Tool/Mod Android, iOS, PC và source code sản phẩm số. Báo giá nhanh qua inbox.">
+    <meta property="og:image" content="https://minthub.com/images/banner-share.jpg">
+    <meta property="og:site_name" content="Nguyễn Minh Triết">
+    <meta property="og:locale" content="vi_VN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nguyễn Minh Triết - Dịch vụ nạp thẻ, nạp game uy tín">
+    <meta name="twitter:description" content="Dịch vụ nạp thẻ, nạp game đa nền tảng. Tool/Mod Android, iOS, PC và source code sản phẩm số. Báo giá nhanh qua inbox.">
+    <meta name="twitter:image" content="https://minthub.com/images/banner-share.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest"> -->
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//i.ibb.co">
+    <link rel="dns-prefetch" href="//media.giphy.com">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* Responsive improvements for index.html */
+        @media (max-width: 768px) {
+            .hero-section { padding: 40px 0; }
+            .hero-title { font-size: 2rem; }
+            .category-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .category-tabs::-webkit-scrollbar { height: 3px; }
+            .category-tabs::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 3px; }
+        }
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.5rem; }
+            .section-title { font-size: 1.3rem; }
+        }
+    </style>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MINT Hub",
+        "alternateName": "MINT Hub Download Center",
+        "url": "https://minthub.com/",
+        "logo": "https://minthub.com/images/logo.png",
+        "description": "Kho tải game, phần mềm, tài liệu IT miễn phí tốc độ cao",
+        "foundingDate": "2024",
+        "founder": {
+            "@type": "Person",
+            "name": "Nguyễn Minh Triết",
+            "url": "https://minthub.com/about.html"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+84-38-353-9399",
+            "contactType": "customer service",
+            "availableLanguage": ["Vietnamese", "English"],
+            "areaServed": "VN"
+        },
+        "sameAs": [
+            "https://facebook.com/nguyenminhtriet.it",
+            "https://linkedin.com/in/nguyenminhtriet",
+            "https://github.com/nguyenminhtriet",
+            "https://t.me/nguyenminhtriet"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "VN"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "1250",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
+    
+    <!-- Structured Data - Website -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MINT Hub",
+        "alternateName": "MINT Hub Download Center",
+        "url": "https://minthub.com/",
+        "description": "Kho tải game PC, phần mềm, tài liệu IT miễn phí tốc độ cao",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://minthub.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MINT Hub",
+            "url": "https://minthub.com/"
+        },
+        "inLanguage": ["vi", "en"],
+        "isAccessibleForFree": true,
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Gamers, Developers, Students, IT Professionals"
+        }
+    }
+    </script>
+    
+    <!-- Structured Data - SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MINT Hub Download Platform",
+        "applicationCategory": "DownloadPlatform",
+        "operatingSystem": "Windows 10, Windows 11, macOS, Linux",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "VND",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2025-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "MINT Hub",
+            "url": "https://minthub.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MINT Hub",
+            "url": "https://minthub.com/"
+        },
+        "dateModified": "2024-01-29",
+        "downloadUrl": "https://minthub.com/",
+        "fileFormat": "application/zip",
+        "installUrl": "https://minthub.com/",
+        "screenshot": "https://minthub.com/images/screenshot.jpg"
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://minthub.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "HOT",
+                "item": "https://minthub.com/#game-pc"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Tất cả file",
+                "item": "https://minthub.com/#all-files"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Liên hệ",
+                "item": "https://minthub.com/#contact"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Structured Data - FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Có cần đăng ký tài khoản để sử dụng không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Không. Bạn có thể inbox để nhận báo giá/tư vấn và sử dụng trực tiếp, không bắt buộc đăng ký."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Giá dịch vụ nạp game / tool mod / source code bao nhiêu?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Giá thay đổi theo thời điểm và theo game/sản phẩm. Bạn inbox Facebook/Zalo/Telegram để nhận báo giá nhanh."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Liên hệ hỗ trợ ở đâu nhanh nhất?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bạn có thể inbox qua Facebook, Zalo hoặc Telegram. Thường phản hồi nhanh trong ngày."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Có hỗ trợ đa nền tảng Android/iOS/PC không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Có. Bạn có thể tìm theo danh mục và inbox để được tư vấn đúng nền tảng Android, iOS hoặc PC."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body data-theme="dark">
+    <!-- Header Component (dynamically loaded) -->
+    <div id="header-placeholder"></div>
+
+    <!-- SEO Hero (Single H1) -->
+    <section class="seo-hero" id="home" aria-label="Giới thiệu dịch vụ">
+        <div class="container">
+            <div class="seo-hero-content">
+                <h1 class="seo-hero-title">NGUYỄN MINH TRIẾT - Dịch vụ nạp thẻ, nạp game uy tín | Kho Tool & Data Game</h1>
+                <p class="seo-hero-desc">Nhận nạp thẻ, nạp game đa nền tảng. Báo giá nhanh qua inbox - không cần đăng ký tài khoản.</p>
+                <div class="seo-hero-cta">
+                    <a class="btn-primary" href="https://facebook.com/nguyenminhtriet.it" target="_blank" rel="noopener">💬 Inbox Facebook</a>
+                    <a class="btn-secondary" href="https://zalo.me/0383539399" target="_blank" rel="noopener">📩 Zalo</a>
+                    <a class="btn-secondary" href="https://t.me/nguyenminhtriet" target="_blank" rel="noopener">📞 Telegram</a>
+                </div>
+                <div class="seo-hero-badges" aria-label="Cam kết">
+                    <span class="seo-badge">Không cần login</span>
+                    <span class="seo-badge">Báo giá qua inbox</span>
+                    <span class="seo-badge">Hỗ trợ nhanh</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Notification -->
+    <div id="welcomeNotification" class="welcome-notification">
+        <div class="welcome-content">
+            <div class="welcome-header">
+                <div class="welcome-icon">
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+                <div class="welcome-title">
+                    <h3>Chào mừng đến với MINT Hub! 🎉</h3>
+                    <p>Nền tảng chia sẻ file miễn phí và chất lượng</p>
+                </div>
+                <button class="welcome-close" onclick="closeWelcomeNotification()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="welcome-body">
+                <div class="welcome-features">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-download"></i>
+                        <div>
+                            <h4>Tải File Miễn Phí</h4>
+                            <p>Hàng ngàn file game, phần mềm, tài liệu chất lượng cao</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fa-solid fa-search"></i>
+                        <div>
+                            <h4>Tìm Kiếm Dễ Dàng</h4>
+                            <p>Sử dụng thanh tìm kiếm để nhanh chóng tìm được file cần thiết</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fa-solid fa-filter"></i>
+                        <div>
+                            <h4>Lọc Theo Danh Mục</h4>
+                            <p>Chọn danh mục Game, Phần mềm, hoặc Tài liệu để xem file theo nhu cầu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <h4>File HOT Nổi Bật</h4>
+                            <p>Xem các file được tải nhiều nhất ở mục HOT trên cùng</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="welcome-tips">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Mẹo sử dụng:</h4>
+                    <ul>
+                        <li>Click vào file để xem chi tiết và tải về</li>
+                        <li>Sử dụng bộ lọc để tìm file theo danh mục cụ thể</li>
+                        <li>File được cập nhật liên tục mỗi ngày</li>
+                        <li>Admin có thể đăng nhập để quản lý file</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="welcome-footer">
+                <div class="welcome-actions">
+                    <button class="btn-primary" onclick="closeWelcomeNotification()">
+                        <i class="fa-solid fa-rocket"></i>
+                        Bắt đầu khám phá
+                    </button>
+                    <button class="btn-secondary" onclick="showTourGuide()">
+                        <i class="fa-solid fa-question-circle"></i>
+                        Hướng dẫn chi tiết
+                    </button>
+                </div>
+                <div class="welcome-remember">
+                    <label>
+                        <input type="checkbox" id="dontShowAgain" onchange="dontShowWelcomeAgain()">
+                        <span>Không hiển thị lại trong 1 giờ</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1: HOT Files -->
+    <section class="top-services" id="game-pc">
+        <div class="container">
+            <h2 class="section-title"><i class="fa-solid fa-fire"></i> HOT</h2>
+            <div class="products-grid" id="hotFilesGrid">
+                <!-- Hot files sẽ được load từ JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: All Files with Categories -->
+    <section class="files-section" id="all-files">
+        <div class="container">
+            <h2 class="section-title"><i class="fa-solid fa-folder"></i> Tất cả file</h2>
+            
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">
+                    <i class="fa-solid fa-border-all"></i> Tất cả
+                </button>
+                <button class="tab-btn" data-category="game-pc">
+                    <i class="fa-solid fa-gamepad"></i> Game PC
+                </button>
+                <button class="tab-btn" data-category="game-mobile">
+                    <i class="fa-solid fa-mobile-alt"></i> Game Mobile
+                </button>
+                <button class="tab-btn" data-category="soft-office">
+                    <i class="fa-solid fa-file-word"></i> Văn phòng
+                </button>
+                <button class="tab-btn" data-category="soft-design">
+                    <i class="fa-solid fa-palette"></i> Thiết kế
+                </button>
+                <button class="tab-btn" data-category="soft-dev">
+                    <i class="fa-solid fa-code"></i> Lập trình
+                </button>
+                <button class="tab-btn" data-category="doc-education">
+                    <i class="fa-solid fa-book"></i> Tài liệu
+                </button>
+                <button class="tab-btn" data-category="doc-it">
+                    <i class="fa-solid fa-laptop-code"></i> IT
+                </button>
+                <button class="tab-btn" data-category="game-mod">
+                    <i class="fa-solid fa-wrench"></i> Game Mods
+                </button>
+            </div>
+            
+            <!-- Files Grid -->
+            <div class="products-grid" id="filesGrid">
+                <!-- Files sẽ được load từ JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact" aria-label="Liên hệ">
+        <div class="container">
+            <h2 class="section-title"><i class="fa-solid fa-address-book"></i> Liên hệ</h2>
+            <p class="section-desc">Nguyễn Minh Triết - báo giá nhanh qua inbox, hỗ trợ trong ngày.</p>
+            <div class="contact-grid">
+                <a class="contact-card" href="https://facebook.com/nguyenminhtriet.it" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+                <a class="contact-card" href="https://zalo.me/0383539399" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-zalo"></i>
+                    <span>Zalo</span>
+                </a>
+                <a class="contact-card" href="https://t.me/nguyenminhtriet" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component (dynamically loaded) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Modal Lịch sử Tải -->
+    <div id="downloadsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-download"></i> Lịch sử tải</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="downloadsList"></div>
+                <div class="downloads-total">
+                    <strong>Tổng file đã tải: <span id="downloadsCount">0</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="clearDownloads()">Xóa lịch sử</button>
+                <button class="btn-primary" onclick="closeDownloads()">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal AI Support -->
+    <div id="aiSupportModal" class="modal">
+        <div class="modal-content" style="max-width: 800px; width: 90%;">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-robot"></i> AI Hỗ Trợ Thông Minh</h3>
+                <span class="close-modal" onclick="closeAISupport()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="chatContainer" style="height: 400px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; background: var(--bg-secondary); margin-bottom: 15px;">
+                    <div class="ai-message" style="margin-bottom: 15px;">
+                        <div style="display: flex; align-items: flex-start; gap: 10px;">
+                            <div style="background: var(--primary-color); color: #000; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                                AI
+                            </div>
+                            <div style="background: var(--card-bg); padding: 12px 15px; border-radius: 12px; max-width: 70%;">
+                                Xin chào! Tôi là trợ lý AI của File Download Hub. Tôi có thể giúp bạn tìm kiếm file, hướng dẫn tải, và giải đáp các câu hỏi về nền tảng. Bạn cần hỗ trợ gì?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="aiInput" placeholder="Nhập câu hỏi của bạn..." style="flex: 1; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--card-bg); color: var(--text-color);" onkeypress="handleAIKeyPress(event)">
+                    <button class="btn-primary" onclick="sendAIMessage()">
+                        <i class="fa-solid fa-paper-plane"></i> Gửi
+                    </button>
+                </div>
+                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Tìm game PC hay nhất')">
+                        🎮 Game PC hay nhất
+                    </button>
+                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Hướng dẫn tải file')">
+                        📥 Hướng dẫn tải
+                    </button>
+                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Phần mềm văn phòng')">
+                        📄 Phần mềm văn phòng
+                    </button>
+                    <button class="btn-secondary" style="font-size: 0.8rem; padding: 5px 10px;" onclick="quickQuestion('Tài liệu học lập trình')">
+                        📚 Tài liệu IT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Box -->
+    <div id="alertBox" class="alert-box"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="main.js"></script>
+    
+    <!-- Debug Script -->
+    <script>
+        // Debug script để kiểm tra localStorage và render
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('debug') !== '1') return;
+
+            console.log('=== DEBUG INDEX.HTML ===');
+            
+            // Kiểm tra localStorage
+            const DB_FILES = 'download_files';
+            const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
+            console.log('Files in localStorage:', files.length);
+            console.log('Files data:', files);
+            
+            // Kiểm tra elements
+            const filesGrid = document.getElementById('filesGrid');
+            const hotFilesGrid = document.getElementById('hotFilesGrid');
+            console.log('filesGrid element:', filesGrid);
+            console.log('hotFilesGrid element:', hotFilesGrid);
+            
+            // Nếu có files mà grid trống, render thủ công
+            if (files.length > 0 && filesGrid && filesGrid.innerHTML.trim() === '') {
+                console.log('Grid is empty, rendering manually...');
+                
+                filesGrid.innerHTML = files.map(f => `
+                    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 5px;">
+                        <h3>${f.name}</h3>
+                        <p><strong>Category:</strong> ${f.category}</p>
+                        <p><strong>Size:</strong> ${f.size}</p>
+                        <p><strong>Downloads:</strong> ${f.downloads}</p>
+                        <p><strong>Description:</strong> ${f.desc}</p>
+                        <a href="${f.link}" style="background: #007bff; color: white; padding: 10px; text-decoration: none; border-radius: 3px;">Tải về</a>
+                    </div>
+                `).join('');
+                
+                console.log('Manual render completed!');
+            }
+            
+            console.log('=== END DEBUG ===');
+        });
+    </script>
+</body>
+</html>

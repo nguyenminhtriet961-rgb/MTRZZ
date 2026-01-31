@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nạp thẻ/Data - MMO Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .topup-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .topup-tab {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .topup-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        .topup-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        .card-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .card-type {
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .card-type:hover,
+        .card-type.selected {
+            border-color: var(--primary-color);
+            background: rgba(0, 255, 136, 0.1);
+        }
+        .card-type img {
+            width: 60px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .discount-info {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .discount-info p {
+            margin: 5px 0;
+            color: var(--text-secondary);
+        }
+        .discount-info strong {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-gamepad-modern"></i>
+                        <span>MMO Store</span>
+                    </a>
+                    <div class="header-actions">
+                        <button class="btn-icon" id="cartBtn" title="Giỏ hàng">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="cart-badge" id="cartBadge">0</span>
+                        </button>
+                        <button class="btn-icon" id="theme-toggle" title="Đổi theme">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding: 40px 20px;">
+        <h1 class="section-title">💳 NẠP THẺ & DATA</h1>
+        
+        <div class="topup-tabs">
+            <button class="topup-tab active" data-type="card" onclick="switchTab('card')">
+                <i class="fa-solid fa-mobile-screen"></i> Nạp thẻ cào
+            </button>
+            <button class="topup-tab" data-type="data" onclick="switchTab('data')">
+                <i class="fa-solid fa-wifi"></i> Nạp Data
+            </button>
+            <button class="topup-tab" data-type="game" onclick="switchTab('game')">
+                <i class="fa-solid fa-gamepad"></i> Nạp Game
+            </button>
+        </div>
+
+        <!-- Card Top-up Form -->
+        <div id="cardForm" class="topup-form">
+            <h2 style="margin-bottom: 20px; color: var(--primary-color);">Nạp thẻ cào tự động</h2>
+            
+            <div class="discount-info">
+                <p><strong>Chiết khấu hiện tại:</strong></p>
+                <p>Viettel: <strong>3%</strong> | Vinaphone: <strong>3%</strong> | Mobifone: <strong>3%</strong></p>
+                <p>Xử lý tự động trong <strong>3-5 giây</strong> sau khi thanh toán</p>
+            </div>
+
+            <form id="topupCardForm" onsubmit="processTopup(event)">
+                <div class="form-group">
+                    <label>Chọn nhà mạng:</label>
+                    <div class="card-types">
+                        <div class="card-type selected" data-provider="viettel" onclick="selectProvider('viettel')">
+                            <div style="color: var(--primary-color); font-size: 2rem;">📱</div>
+                            <div>Viettel</div>
+                        </div>
+                        <div class="card-type" data-provider="vinaphone" onclick="selectProvider('vinaphone')">
+                            <div style="color: var(--primary-color); font-size: 2rem;">📱</div>
+                            <div>Vinaphone</div>
+                        </div>
+                        <div class="card-type" data-provider="mobifone" onclick="selectProvider('mobifone')">
+                            <div style="color: var(--primary-color); font-size: 2rem;">📱</div>
+                            <div>Mobifone</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="provider" value="viettel" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mệnh giá thẻ:</label>
+                    <select id="cardValue" required onchange="calculateAmount()">
+                        <option value="">Chọn mệnh giá</option>
+                        <option value="10000">10.000đ</option>
+                        <option value="20000">20.000đ</option>
+                        <option value="50000">50.000đ</option>
+                        <option value="100000">100.000đ</option>
+                        <option value="200000">200.000đ</option>
+                        <option value="500000">500.000đ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Số seri thẻ:</label>
+                    <input type="text" id="cardSerial" placeholder="Nhập số seri" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mã thẻ:</label>
+                    <input type="text" id="cardCode" placeholder="Nhập mã thẻ" required>
+                </div>
+
+                <div class="discount-info">
+                    <p>Số tiền nhận được: <strong id="receivedAmount">0đ</strong></p>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 15px;">
+                    <i class="fa-solid fa-check"></i> Xác nhận nạp thẻ
+                </button>
+            </form>
+        </div>
+
+        <!-- Data Top-up Form -->
+        <div id="dataForm" class="topup-form" style="display: none;">
+            <h2 style="margin-bottom: 20px; color: var(--primary-color);">Nạp Data 4G/5G</h2>
+            
+            <form id="topupDataForm" onsubmit="processTopup(event)">
+                <div class="form-group">
+                    <label>Số điện thoại:</label>
+                    <input type="tel" id="phoneNumber" placeholder="Nhập số điện thoại" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Chọn gói Data:</label>
+                    <select id="dataPackage" required>
+                        <option value="">Chọn gói</option>
+                        <option value="1gb">1GB - 10.000đ</option>
+                        <option value="3gb">3GB - 25.000đ</option>
+                        <option value="5gb">5GB - 40.000đ</option>
+                        <option value="10gb">10GB - 70.000đ</option>
+                        <option value="unlimited">Unlimited 1 ngày - 15.000đ</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 15px;">
+                    <i class="fa-solid fa-check"></i> Xác nhận nạp Data
+                </button>
+            </form>
+        </div>
+
+        <!-- Game Top-up Form -->
+        <div id="gameForm" class="topup-form" style="display: none;">
+            <h2 style="margin-bottom: 20px; color: var(--primary-color);">Nạp Game</h2>
+            
+            <form id="topupGameForm" onsubmit="processTopup(event)">
+                <div class="form-group">
+                    <label>Chọn game:</label>
+                    <select id="gameSelect" required>
+                        <option value="">Chọn game</option>
+                        <option value="lq">Liên Quân Mobile</option>
+                        <option value="ff">Free Fire</option>
+                        <option value="pubg">PUBG Mobile</option>
+                        <option value="genshin">Genshin Impact</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>ID tài khoản:</label>
+                    <input type="text" id="gameId" placeholder="Nhập ID tài khoản" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mệnh giá:</label>
+                    <select id="gameValue" required>
+                        <option value="">Chọn mệnh giá</option>
+                        <option value="50000">50.000đ</option>
+                        <option value="100000">100.000đ</option>
+                        <option value="200000">200.000đ</option>
+                        <option value="500000">500.000đ</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 15px;">
+                    <i class="fa-solid fa-check"></i> Xác nhận nạp Game
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Giỏ hàng -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <strong>Tổng tiền: <span id="cartTotal">0đ</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeCart()">Tiếp tục mua</button>
+                <button class="btn-primary" onclick="checkout()">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="alertBox" class="alert-box"></div>
+    <script src="main.js"></script>
+    <script>
+        let selectedProvider = 'viettel';
+        const discountRate = 0.03; // 3%
+
+        function switchTab(type) {
+            document.querySelectorAll('.topup-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`[data-type="${type}"]`).classList.add('active');
+            
+            document.getElementById('cardForm').style.display = type === 'card' ? 'block' : 'none';
+            document.getElementById('dataForm').style.display = type === 'data' ? 'block' : 'none';
+            document.getElementById('gameForm').style.display = type === 'game' ? 'block' : 'none';
+        }
+
+        function selectProvider(provider) {
+            selectedProvider = provider;
+            document.getElementById('provider').value = provider;
+            document.querySelectorAll('.card-type').forEach(type => type.classList.remove('selected'));
+            document.querySelector(`[data-provider="${provider}"]`).classList.add('selected');
+            calculateAmount();
+        }
+
+        function calculateAmount() {
+            const cardValue = parseInt(document.getElementById('cardValue').value) || 0;
+            const received = cardValue * (1 - discountRate);
+            document.getElementById('receivedAmount').textContent = formatPrice(received);
+        }
+
+        function processTopup(e) {
+            e.preventDefault();
+            showAlert('Đang xử lý... Vui lòng đợi 3-5 giây');
+            
+            // Simulate API call
+            setTimeout(() => {
+                showAlert('Nạp thẻ thành công! Số tiền đã được cộng vào tài khoản.', 5000);
+                e.target.reset();
+            }, 3000);
+        }
+
+        // Initialize
+        updateCartBadge();
+    </script>
+</body>
+</html>

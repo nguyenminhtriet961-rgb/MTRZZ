@@ -1,0 +1,50 @@
+{
+  "profile": {
+    "full_name": "Nguyễn Minh Triết",
+    "dob": "2009-01-05",
+    "role": "MMO & Service Provider",
+    "contact": {
+      "phone": "0383539399",
+      "zalo": "0383539399"
+    }
+  },
+  "services": [
+    {
+      "category": "Viễn Thông & Data",
+      "items": [
+        "Đăng ký Data 4G/5G Viettel, Vina, Mobi chiết khấu cao",
+        "Sim số đẹp, Sim vào mạng",
+        "Thẻ cào sỉ/lẻ"
+      ]
+    },
+    {
+      "category": "Game Services",
+      "items": [
+        "Cày thuê Rank, Farm tài nguyên",
+        "Mua bán Account Game",
+        "Nạp Game giá rẻ (Bảo hành)"
+      ]
+    },
+    {
+      "category": "Social Media (MXH)",
+      "items": [
+        "Mua bán Acc Facebook, TikTok",
+        "Buff Like, Sub, View, Follow",
+        "Tuyển Ref UGPhone (Có hoa hồng)"
+      ]
+    },
+    {
+      "category": "Premium Accounts",
+      "items": [
+        "ChatGPT Plus, Gemini Advanced",
+        "YouTube Premium, Spotify, Zing MP3"
+      ]
+    },
+    {
+      "category": "Thanh Toán & Tiện Ích",
+      "items": [
+        "Thanh toán điện, nước, internet (Chiết khấu)"
+      ]
+    }
+  ]
+}

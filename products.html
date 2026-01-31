@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - MINT Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .filter-sidebar {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .filter-group {
+            margin-bottom: 25px;
+        }
+        .filter-group h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .filter-option input[type="checkbox"],
+        .filter-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+        .price-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .price-range input {
+            flex: 1;
+        }
+        .products-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .sort-select {
+            padding: 8px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+        @media (max-width: 968px) {
+            .products-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Header Component (dynamically loaded) -->
+    <div id="header-placeholder"></div>
+
+    <div class="container" style="padding: 40px 20px;">
+        <h1 class="section-title" style="margin-bottom: 30px;">🎮 CỬA HÀNG SẢN PHẨM</h1>
+        
+        <div class="products-layout">
+            <!-- Filter Sidebar -->
+            <aside class="filter-sidebar">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px;">🔍 Bộ lọc</h3>
+                
+                <div class="filter-group">
+                    <h4>Danh mục</h4>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="cat-all" value="all" checked>
+                        <label for="cat-all">Tất cả</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="cat-lq" value="lq">
+                        <label for="cat-lq">Liên Quân Mobile</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="cat-ff" value="ff">
+                        <label for="cat-ff">Free Fire</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="cat-rbl" value="rbl">
+                        <label for="cat-rbl">Roblox</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Giá</h4>
+                    <div class="price-range">
+                        <input type="number" id="priceMin" placeholder="Từ" min="0">
+                        <span>-</span>
+                        <input type="number" id="priceMax" placeholder="Đến" min="0">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Rank</h4>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rank-cao-thu" value="cao-thu">
+                        <label for="rank-cao-thu">Cao Thủ</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rank-kim-cuong" value="kim-cuong">
+                        <label for="rank-kim-cuong">Kim Cương</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rank-bach-kim" value="bach-kim">
+                        <label for="rank-bach-kim">Bạch Kim</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Tính năng</h4>
+                    <div class="filter-option">
+                        <input type="checkbox" id="feature-skin" value="skin">
+                        <label for="feature-skin">Nhiều Skin</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="feature-tuong" value="tuong">
+                        <label for="feature-tuong">Đầy đủ Tướng</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="feature-vatpham" value="vatpham">
+                        <label for="feature-vatpham">Vật phẩm đặc biệt</label>
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="width: 100%;" onclick="applyFilters()">Áp dụng bộ lọc</button>
+                <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="resetFilters()">Đặt lại</button>
+            </aside>
+
+            <!-- Products Grid -->
+            <main>
+                <div class="products-header">
+                    <p id="productCount">Tìm thấy <strong>0</strong> sản phẩm</p>
+                    <select class="sort-select" id="sortSelect" onchange="sortProducts()">
+                        <option value="default">Mặc định</option>
+                        <option value="price-asc">Giá: Thấp → Cao</option>
+                        <option value="price-desc">Giá: Cao → Thấp</option>
+                        <option value="name-asc">Tên: A → Z</option>
+                    </select>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer Component (dynamically loaded) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Modal Giỏ hàng -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <strong>Tổng tiền: <span id="cartTotal">0đ</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeCart()">Tiếp tục mua</button>
+                <button class="btn-primary" onclick="checkout()">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="alertBox" class="alert-box"></div>
+    
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // Extended product data
+        const allProducts = [
+            { id: 'lq-1', name: 'Acc LQ Rank Cao Thủ', desc: '50+ tướng, 30+ skin', price: 500000, category: 'lq', rank: 'cao-thu', features: ['skin', 'tuong'] },
+            { id: 'lq-2', name: 'Acc LQ Rank Kim Cương', desc: '40+ tướng, 20+ skin', price: 300000, category: 'lq', rank: 'kim-cuong', features: ['skin', 'tuong'] },
+            { id: 'lq-3', name: 'Acc LQ Rank Bạch Kim', desc: '30+ tướng, 15+ skin', price: 200000, category: 'lq', rank: 'bach-kim', features: ['tuong'] },
+            { id: 'ff-1', name: 'Acc FF Rank Huyền Thoại', desc: '100+ skin, full trang phục', price: 800000, category: 'ff', rank: 'cao-thu', features: ['skin', 'vatpham'] },
+            { id: 'ff-2', name: 'Acc FF Rank Conqueror', desc: '80+ skin, nhiều vũ khí', price: 600000, category: 'ff', rank: 'kim-cuong', features: ['skin'] },
+            { id: 'rbl-1', name: 'Acc Roblox Premium', desc: 'Nhiều Robux, items độc', price: 400000, category: 'rbl', rank: '', features: ['vatpham'] },
+        ];
+
+        let filteredProducts = [...allProducts];
+
+        function applyFilters() {
+            const category = document.querySelector('input[name="category"]:checked').value;
+            const priceMin = parseInt(document.getElementById('priceMin').value) || 0;
+            const priceMax = parseInt(document.getElementById('priceMax').value) || Infinity;
+            const selectedRanks = Array.from(document.querySelectorAll('input[type="checkbox"][id^="rank"]:checked')).map(cb => cb.value);
+            const selectedFeatures = Array.from(document.querySelectorAll('input[type="checkbox"][id^="feature"]:checked')).map(cb => cb.value);
+
+            filteredProducts = allProducts.filter(product => {
+                if (category !== 'all' && product.category !== category) return false;
+                if (product.price < priceMin || product.price > priceMax) return false;
+                if (selectedRanks.length > 0 && !selectedRanks.includes(product.rank)) return false;
+                if (selectedFeatures.length > 0 && !selectedFeatures.some(f => product.features.includes(f))) return false;
+                return true;
+            });
+
+            renderProducts();
+        }
+
+        function resetFilters() {
+            document.getElementById('priceMin').value = '';
+            document.getElementById('priceMax').value = '';
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.getElementById('cat-all').checked = true;
+            filteredProducts = [...allProducts];
+            renderProducts();
+        }
+
+        function sortProducts() {
+            const sortValue = document.getElementById('sortSelect').value;
+            
+            filteredProducts.sort((a, b) => {
+                switch(sortValue) {
+                    case 'price-asc': return a.price - b.price;
+                    case 'price-desc': return b.price - a.price;
+                    case 'name-asc': return a.name.localeCompare(b.name);
+                    default: return 0;
+                }
+            });
+            
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const count = document.getElementById('productCount');
+            
+            count.innerHTML = `Tìm thấy <strong>${filteredProducts.length}</strong> sản phẩm`;
+            
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = '<p class="text-center" style="padding: 40px; color: var(--text-secondary);">Không tìm thấy sản phẩm nào</p>';
+                return;
+            }
+            
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">🎮</div>
+                    <div class="product-info">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-desc">${product.desc}</div>
+                        <div class="product-price">${formatPrice(product.price)}</div>
+                        <button class="btn-add-cart" onclick="addToCart('${product.id}', '${product.name}', ${product.price})">
+                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        renderProducts();
+    </script>
+</body>
+</html>

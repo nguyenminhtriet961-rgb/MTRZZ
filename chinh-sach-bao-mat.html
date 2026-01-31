@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách bảo mật - File Download Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .privacy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .privacy-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .privacy-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .privacy-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .privacy-section {
+            margin-bottom: 40px;
+        }
+        
+        .privacy-section h2 {
+            color: var(--primary-color);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .privacy-section h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+        
+        .privacy-section p, .privacy-section li {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .privacy-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .privacy-section li {
+            margin-bottom: 10px;
+        }
+        
+        .security-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .commitment-box {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: 20px 15px;
+            }
+            
+            .privacy-content {
+                padding: 25px;
+            }
+            
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-gamepad-modern"></i>
+                        <span>File Hub</span>
+                    </a>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm file, tài liệu...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-icon" id="downloadsBtn" title="Lịch sử tải">
+                            <i class="fa-solid fa-download"></i>
+                            <span class="downloads-badge" id="downloadsBadge">0</span>
+                        </button>
+                        <button class="btn-icon" id="loginBtn" title="Đăng nhập">
+                            <i class="fa-solid fa-user"></i>
+                        </button>
+                        <button class="btn-icon" id="theme-toggle" title="Đổi theme">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html"><i class="fa-solid fa-home"></i> Trang chủ</a></li>
+                    <li class="nav-item"><a href="about.html"><i class="fa-solid fa-user"></i> Giới thiệu</a></li>
+                    <li class="nav-item"><a href="chinh-sach-bao-mat.html" class="active"><i class="fa-solid fa-shield-alt"></i> Bảo mật</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="privacy-container">
+        <div class="privacy-header">
+            <h1><i class="fa-solid fa-shield-alt"></i> CHÍNH SÁCH BẢO MẬT</h1>
+            <p>Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn</p>
+        </div>
+
+        <div class="privacy-content">
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-heart"></i> Cam kết của chúng tôi</h2>
+                <p>Tại File Download Hub, chúng tôi hiểu rằng bảo mật thông tin cá nhân là rất quan trọng. Với tư cách là một dự án phi lợi nhuận được tạo ra bởi sinh viên IT, chúng tôi cam kết:</p>
+                
+                <div class="commitment-box">
+                    <ul>
+                        <li><strong>Không bán thông tin:</strong> Chúng tôi không bao giờ bán, cho thuê hay chia sẻ thông tin cá nhân của bạn cho bên thứ ba.</li>
+                        <li><strong>Thu thập tối thiểu:</strong> Chỉ thu thập những thông tin thực sự cần thiết để vận hành trang web.</li>
+                        <li><strong>Bảo vệ nghiêm ngặt:</strong> Sử dụng các biện pháp bảo mật tốt nhất để bảo vệ dữ liệu của bạn.</li>
+                        <li><strong>Minh bạch:</strong> Luôn thông báo rõ ràng về việc thu thập và sử dụng thông tin.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-database"></i> Thông tin chúng tôi thu thập</h2>
+                
+                <h3>1. Thông tin bạn cung cấp</h3>
+                <ul>
+                    <li><strong>Email (nếu có):</strong> Khi bạn liên hệ hoặc đăng ký tài khoản</li>
+                    <li><strong>Tên người dùng:</strong> Tên hiển thị trên trang web</li>
+                    <li><strong>Nội dung chat:</strong> Các cuộc trò chuyện với AI hỗ trợ</li>
+                    <li><strong>Phản hồi:</strong> Các góp ý, báo cáo lỗi của bạn</li>
+                </ul>
+
+                <h3>2. Thông tin tự động thu thập</h3>
+                <ul>
+                    <li><strong>Địa chỉ IP:</strong> Để phân tích và bảo mật</li>
+                    <li><strong>Loại trình duyệt:</strong> Để tối ưu trải nghiệm</li>
+                    <li><strong>Thời gian truy cập:</strong> Để thống kê sử dụng</li>
+                    <li><strong>Cookies:</strong> Để lưu các thiết lập cá nhân</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-cogs"></i> Cách chúng tôi sử dụng thông tin</h2>
+                
+                <div class="security-box">
+                    <p>Chúng tôi sử dụng thông tin của bạn cho các mục đích sau:</p>
+                    <ul>
+                        <li><strong>Cung cấp dịch vụ:</strong> Để bạn có thể tải và chia sẻ file</li>
+                        <li><strong>Cải thiện trang web:</strong> Phân tích cách sử dụng để nâng cao trải nghiệm</li>
+                        <li><strong>Hỗ trợ kỹ thuật:</strong> Giải quyết các vấn đề bạn gặp phải</li>
+                        <li><strong>Bảo mật:</strong> Ngăn chặn các hoạt động gian lận, spam</li>
+                        <li><strong>Thông báo:</strong> Gửi các thông báo quan trọng về trang web</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-lock"></i> Biện pháp bảo mật</h2>
+                <p>Chúng tôi áp dụng các biện pháp sau để bảo vệ thông tin của bạn:</p>
+                <ul>
+                    <li><strong>Mã hóa dữ liệu:</strong> Sử dụng HTTPS để mã hóa kết nối</li>
+                    <li><strong>Firewall:</strong> Hệ thống tường lửa để chặn truy cập trái phép</li>
+                    <li><strong>Backup định kỳ:</strong> Sao lưu dữ liệu để phòng mất mát</li>
+                    <li><strong>Giới hạn quyền truy cập:</strong> Chỉ admin mới có quyền truy cập dữ liệu người dùng</li>
+                    <li><strong>Cập nhật bảo mật:</strong> Thường xuyên cập nhật các bản vá bảo mật</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-cookie"></i> Chính sách Cookies</h2>
+                <p>Trang web của chúng tôi sử dụng cookies để:</p>
+                <ul>
+                    <li><strong>Ghi nhớ thiết lập:</strong> Lưu theme (sáng/tối) bạn chọn</li>
+                    <li><strong>Phiên đăng nhập:</strong> Giữ bạn đăng nhập lâu hơn</li>
+                    <li><strong>Phân tích:</strong> Thống kê số lượng truy cập để cải thiện trang web</li>
+                    <li><strong>Cá nhân hóa:</strong> Hiển thị nội dung phù hợp với bạn</li>
+                </ul>
+                
+                <p>Bạn có thể xóa cookies trong trình duyệt bất cứ lúc nào.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-share-alt"></i> Chia sẻ thông tin</h2>
+                <p>Chúng tôi cam kết:</p>
+                <ul>
+                    <li><strong>Không bán thông tin:</strong> Tuyệt đối không bán thông tin cá nhân</li>
+                    <li><strong>Không chia sẻ quảng cáo:</strong> Không chia sẻ với các bên quảng cáo</li>
+                    <li><strong>Chỉ chia sẻ khi bắt buộc:</strong> Chỉ chia sẻ khi có yêu cầu của pháp luật</li>
+                    <li><strong>Minh bạch:</strong> Luôn thông báo nếu có sự thay đổi</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-user-shield"></i> Quyền của bạn</h2>
+                <p>Bạn có các quyền sau đối với thông tin cá nhân:</p>
+                <ul>
+                    <li><strong>Quyền truy cập:</strong> Yêu cầu xem thông tin chúng tôi lưu về bạn</li>
+                    <li><strong>Quyền sửa đổi:</strong> Yêu cầu cập nhật thông tin không chính xác</li>
+                    <li><strong>Quyền xóa:</strong> Yêu cầu xóa tài khoản và thông tin cá nhân</li>
+                    <li><strong>Quyền phản đối:</strong> Phản đối việc xử lý thông tin của bạn</li>
+                    <li><strong>Quyền rút lại:</strong> Rút lại sự đồng ý đã cấp trước đó</li>
+                </ul>
+                
+                <p>Để thực hiện các quyền này, vui lòng liên hệ email: nguyenminhtriet.it@gmail.com</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-clock"></i> Lưu trữ thông tin</h2>
+                <ul>
+                    <li><strong>Tài khoản người dùng:</strong> Lưu trữ cho đến khi bạn yêu cầu xóa</li>
+                    <li><strong>Lịch sử tải:</strong> Lưu trữ trong 30 ngày để phân tích</li>
+                    <li><strong>Nội dung chat AI:</strong> Lưu trữ trong 7 ngày để cải thiện dịch vụ</li>
+                    <li><strong>Log hệ thống:</strong> Lưu trữ trong 90 ngày để bảo mật</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-child"></i> Bảo vệ trẻ em</h2>
+                <p>Trang web của chúng tôi không dành cho trẻ em dưới 18 tuổi. Chúng tôi:</p>
+                <ul>
+                    <li>Không thu thập thông tin cố ý từ trẻ em</li>
+                    <li>Yêu cầu sự đồng ý của phụ huynh cho người dùng dưới 18 tuổi</li>
+                    <li>Sẽ xóa thông tin nếu phát hiện người dùng chưa đủ tuổi</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-globe"></i> Chuyển dữ liệu quốc tế</h2>
+                <p>Hiện tại, tất cả dữ liệu của bạn được lưu trữ tại Việt Nam. Chúng tôi không chuyển dữ liệu ra nước ngoài nếu không có sự cho phép của bạn.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-exclamation-triangle"></i> Rủi ro và bảo mật</h2>
+                <p>Mặc dù chúng tôi áp dụng các biện pháp bảo mật tốt nhất, nhưng không có hệ thống nào là an toàn tuyệt đối. Các rủi ro tiềm tàng:</p>
+                <ul>
+                    <li><strong>Tấn công mạng:</strong> Hacker có thể cố gắng xâm nhập</li>
+                    <li><strong>Lỗi hệ thống:</strong> Có thể có lỗ hổng bảo mật chưa phát hiện</li>
+                    <li><strong>Con người:</strong> Lỗi từ người dùng hoặc admin</li>
+                </ul>
+                
+                <p>Chúng tôi cam kết sẽ thông báo ngay lập tức nếu có sự cố rò rỉ dữ liệu.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-sync"></i> Thay đổi chính sách</h2>
+                <p>Chúng tôi có thể cập nhật chính sách bảo mật theo thời gian. Mọi thay đổi sẽ:</p>
+                <ul>
+                    <li>Được thông báo trên trang web</li>
+                    <li>Có hiệu lực sau 7 ngày kể từ ngày thông báo</li>
+                    <li>Luôn ưu tiên lợi ích của người dùng</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fa-solid fa-envelope"></i> Liên hệ</h2>
+                <p>Nếu bạn có câu hỏi về chính sách bảo mật hoặc muốn thực hiện quyền của mình, vui lòng liên hệ:</p>
+                <ul>
+                    <li><strong>Email:</strong> nguyenminhtriet.it@gmail.com</li>
+                    <li><strong>Zalo:</strong> 038.353.9399</li>
+                    <li><strong>Telegram:</strong> @nguyenminhtriet</li>
+                </ul>
+                
+                <p>Chúng tôi sẽ phản hồi trong vòng 24-48 giờ.</p>
+            </div>
+
+            <div class="last-updated">
+                <p><i class="fa-solid fa-calendar"></i> Cập nhật lần cuối: 28/01/2026</p>
+                <p><i class="fa-solid fa-user"></i> Người tạo chính sách: Nguyễn Minh Triết</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-info-circle"></i> Thông tin</h4>
+                    <ul>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="#" onclick="openAISupport()">AI hỗ trợ</a></li>
+                        <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                        <li><a href="dieu-khoan-su-dung.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-headset"></i> Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="https://zalo.me/0383539399" target="_blank"><i class="fa-brands fa-zalo"></i> Zalo: 038.353.9399</a></li>
+                        <li><a href="https://t.me/nguyenminhtriet" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
+                        <li><a href="mailto:nguyenminhtriet.it@gmail.com"><i class="fa-solid fa-envelope"></i> Email hỗ trợ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fa-solid fa-link"></i> Mạng xã hội</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com/nguyenminhtriet.it" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://linkedin.com/in/nguyenminhtriet" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/nguyenminhtriet" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://t.me/nguyenminhtriet" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 File Download Hub by Nguyễn Minh Triết. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

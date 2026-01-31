@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Add Product</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            padding: 20px; 
+            text-align: center; 
+            background: var(--bg-primary, #1a1a1a);
+            color: var(--text-primary, #ffffff);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg, #2a2a2a);
+            border-radius: var(--radius-lg, 16px);
+            padding: var(--space-5, 24px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            margin-bottom: var(--space-4, 18px);
+        }
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: var(--radius-md, 12px);
+            margin-bottom: var(--space-2, 10px);
+        }
+        h1 {
+            color: var(--primary-color, #00d084);
+            margin-bottom: var(--space-5, 24px);
+            font-size: 1.8rem;
+        }
+        .btn { 
+            padding: 12px 24px; 
+            background: var(--primary-color, #00d084); 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin: 8px; 
+            border-radius: var(--radius-md, 12px);
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn:hover { 
+            background: var(--primary-hover, #00b074);
+            transform: translateY(-2px);
+        }
+        .status { 
+            margin: 20px 0; 
+            padding: var(--space-4, 18px); 
+            background: var(--bg-secondary, #333333); 
+            border-radius: var(--radius-md, 12px);
+            border: 1px solid var(--border-color, #444444);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: var(--space-4, 18px); }
+            h1 { font-size: 1.5rem; }
+            .btn { padding: 10px 20px; font-size: 14px; margin: 6px; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.3rem; }
+            .btn { display: block; width: 100%; margin: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://sf-static.upanhlaylink.com/img/image_20260128bfa88f9f154c2985044fd2d4658f90af.jpg" alt="MINT Hub Logo">
+        </div>
+        <h1>Quick Add (TRANG CHỦ)</h1>
+
+        <div class="status" id="status">Đang kiểm tra...</div>
+
+        <button class="btn" onclick="addFlorentino()">Thêm ADD ON FLORENTINO</button>
+        <button class="btn" onclick="checkData()">Kiểm tra dữ liệu</button>
+        <button class="btn" onclick="goToIndex()">Về trang chủ</button>
+    </div>
+
+    <script>
+        const DB_FILES = 'download_files';
+
+        function checkData() {
+            const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
+            document.getElementById('status').innerHTML = `
+                <strong>Tổng số file:</strong> ${files.length}<br>
+                <strong>Chi tiết:</strong><br>
+                ${files.map(f => `- ${f.name} (${f.category})`).join('<br>') || 'Chưa có file nào'}
+            `;
+        }
+
+        function addFlorentino() {
+            const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
+
+            const florentino = {
+                id: 'FILE' + Date.now(),
+                name: 'ADD ON FLORENTINO',
+                category: 'game-mod',
+                size: '17 KB',
+                downloads: 0,
+                viewCount: 100,
+                link: 'https://link2m.com/38PhqAWu',
+                desc: 'ccaamf kiếm sắt chuột phải (hình ngắm trên đt) để sử dụng kĩ năng, hoặc đánh thường',
+                image: 'https://oneesports.blob.core.windows.net/cdn-data/sites/4/2021/08/florentino-1.jpg'
+            };
+
+            files.push(florentino);
+            localStorage.setItem(DB_FILES, JSON.stringify(files));
+
+            alert('Đã thêm ADD ON FLORENTINO! Tổng số: ' + files.length);
+            checkData();
+        }
+
+        function goToIndex() {
+            window.location.href = 'index.html';
+        }
+
+        checkData();
+    </script>
+</body>
+</html>
