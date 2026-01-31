@@ -1372,8 +1372,49 @@ window.addEventListener('online', () => {
 const DB_FILES = 'download_files';
 const DB_DOWNLOADS = 'download_history';
 
+ const supabaseUrl = 'https://ptotukjsupfsjwzrxkky.supabase.co';
+ const supabaseKey = 'DÁN_MÃ_ANON_CỦA_TRIẾT_VÀO_ĐÂY';
+ const USE_CLOUD = typeof supabase !== 'undefined' && typeof supabaseKey === 'string' && !supabaseKey.includes('DÁN_MÃ_ANON_CỦA_TRIẾT_VÀO_ĐÂY');
+ const _supabase = (typeof supabase !== 'undefined') ? supabase.createClient(supabaseUrl, supabaseKey) : null;
+
+ async function loadProductsFromCloud() {
+     if (!USE_CLOUD || !_supabase) {
+         return;
+     }
+
+     const { data: products, error } = await _supabase
+         .from('products')
+         .select('*')
+         .order('id', { ascending: false });
+
+     if (error) {
+         console.error("Lỗi:", error.message);
+         return;
+     }
+
+     const grid = document.getElementById('filesGrid');
+     if (!grid) return;
+
+     if (!products || products.length === 0) {
+         grid.innerHTML = '<p style="text-align:center; width:100%;">Chưa có sản phẩm nào.</p>';
+         return;
+     }
+
+     grid.innerHTML = products.map(p => `
+         <div class="product-card">
+             <div class="product-badge">${p.category || ''}</div>
+             <img src="${p.image || 'https://via.placeholder.com/150'}" alt="${p.name || ''}" onerror="this.src='https://via.placeholder.com/150'">
+             <div class="product-info">
+                 <h3>${p.name || ''}</h3>
+                 <p><i class="fa-solid fa-file"></i> ${p.size || ''}</p>
+                 <a href="${p.link || '#'}" class="btn-primary" target="_blank">Tải về / Inbox</a>
+             </div>
+         </div>
+     `).join('');
+ }
+
 // Khởi tạo dữ liệu mẫu nếu trống
-if (!localStorage.getItem(DB_FILES)) {
+if (!USE_CLOUD && !localStorage.getItem(DB_FILES)) {
     const samples = [
         { id: '1', name: 'CS2 Full', category: 'game-pc', size: '25 GB', link: 'https://example.com/cs2.zip', desc: 'Counter-Strike 2 Full Crack', downloads: 1234, viewCount: 200, image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGNkIzNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Q1MyIEZ1bGw8L3RleHQ+PC9zdmc+' },
         { id: '2', name: 'Office 2024', category: 'soft-office', size: '3.2 GB', link: 'https://example.com/office2024.zip', desc: 'Microsoft Office 2024 Full', downloads: 856, viewCount: 150, image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwNzhENCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+T2ZmaWNlIDIwMjQ8L3RleHQ+PC9zdmc+' },
@@ -1593,6 +1634,12 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.classList.add('active');
             // Get category and render files
             const cat = btn.getAttribute('data-category');
+
+            if (USE_CLOUD) {
+                loadProductsFromCloud();
+                return;
+            }
+
             renderFiles(cat);
         });
     });
@@ -1602,8 +1649,18 @@ document.addEventListener('DOMContentLoaded', function() {
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
     const body = document.body;
+
+    if (!body.getAttribute('data-theme')) {
+        body.setAttribute('data-theme', 'light');
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.className = 'fa-solid fa-moon';
+        }
+    }
+
     themeToggle.addEventListener('click', () => {
-        const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        const currentTheme = body.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         body.setAttribute('data-theme', newTheme);
         themeToggle.querySelector('i').className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     });
@@ -1647,6 +1704,13 @@ function checkForDataUpdates() {
 // Manual refresh function
 function refreshData() {
     console.log('Manual refresh triggered...');
+
+    if (USE_CLOUD) {
+        loadProductsFromCloud();
+        showToast('Dữ liệu đã được làm mới!', 'success', 2000);
+        return;
+    }
+
     renderFiles();
     renderHotFiles();
     showToast('Dữ liệu đã được làm mới!', 'success', 2000);
@@ -1657,75 +1721,71 @@ function refreshData() {
     localStorage.setItem('previousDataLength', currentData.length.toString());
 }
 
-// Auto-check for updates every 5 seconds
-setInterval(checkForDataUpdates, 5000);
+if (!USE_CLOUD) {
+    setInterval(checkForDataUpdates, 5000);
 
-// Real-time synchronization for all users - check every 1 second
-let lastDataHash = '';
-let lastUpdateTime = Date.now();
+    let lastDataHash = '';
+    let lastUpdateTime = Date.now();
 
-function checkRealTimeUpdate() {
-    const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
-    const currentHash = JSON.stringify(files).length + '_' + files.length;
-    const currentTime = Date.now();
-    
-    // Check if data changed (new file added/removed)
-    if (lastDataHash && currentHash !== lastDataHash) {
-        console.log('Real-time update: Data changed, refreshing all users...');
-        renderFiles();
-        renderHotFiles();
+    function checkRealTimeUpdate() {
+        const files = JSON.parse(localStorage.getItem(DB_FILES)) || [];
+        const currentHash = JSON.stringify(files).length + '_' + files.length;
+        const currentTime = Date.now();
         
-        // Show notification to all users
-        const timeDiff = currentTime - lastUpdateTime;
-        if (timeDiff < 5000) { // If changed within last 5 seconds, likely new upload
-            showToast('🆕 Có sản phẩm mới vừa được đăng!', 'success', 4000);
-        } else {
-            showToast('📢 Dữ liệu đã được cập nhật!', 'info', 3000);
-        }
-        
-        lastUpdateTime = currentTime;
-    }
-    lastDataHash = currentHash;
-}
-
-// Real-time polling for all users (1 second)
-console.log('Starting real-time synchronization for all users...');
-setInterval(checkRealTimeUpdate, 1000);
-
-// Initialize hash
-checkRealTimeUpdate();
-
-// Listen for storage events (when same tab changes data)
-window.addEventListener('storage', function(e) {
-    if (e.key === DB_FILES) {
-        console.log('Storage event: Data changed, refreshing all users...', e);
-        
-        // Immediate refresh for all users
-        setTimeout(() => {
+        if (lastDataHash && currentHash !== lastDataHash) {
+            console.log('Real-time update: Data changed, refreshing all users...');
             renderFiles();
             renderHotFiles();
-            showToast('🆕 Có sản phẩm mới vừa được đăng!', 'success', 4000);
-        }, 100);
+            
+            const timeDiff = currentTime - lastUpdateTime;
+            if (timeDiff < 5000) {
+                showToast('🆕 Có sản phẩm mới vừa được đăng!', 'success', 4000);
+            } else {
+                showToast('📢 Dữ liệu đã được cập nhật!', 'info', 3000);
+            }
+            
+            lastUpdateTime = currentTime;
+        }
+        lastDataHash = currentHash;
     }
-});
 
-// Also listen for custom events from same tab (admin page)
-window.addEventListener('storage-custom', function(e) {
-    if (e.detail.key === DB_FILES) {
-        console.log('Custom storage event: Admin uploaded new file', e.detail);
-        
-        renderFiles();
-        renderHotFiles();
-        showToast('🚀 Admin vừa đăng sản phẩm mới!', 'success', 4000);
-    }
-});
+    console.log('Starting real-time synchronization for all users...');
+    setInterval(checkRealTimeUpdate, 1000);
+    checkRealTimeUpdate();
+
+    window.addEventListener('storage', function(e) {
+        if (e.key === DB_FILES) {
+            console.log('Storage event: Data changed, refreshing all users...', e);
+            
+            setTimeout(() => {
+                renderFiles();
+                renderHotFiles();
+                showToast('🆕 Có sản phẩm mới vừa được đăng!', 'success', 4000);
+            }, 100);
+        }
+    });
+
+    window.addEventListener('storage-custom', function(e) {
+        if (e.detail.key === DB_FILES) {
+            console.log('Custom storage event: Admin uploaded new file', e.detail);
+            
+            renderFiles();
+            renderHotFiles();
+            showToast('🚀 Admin vừa đăng sản phẩm mới!', 'success', 4000);
+        }
+    });
+}
 
 // Listen for visibility changes (when user returns to this tab)
 document.addEventListener('visibilitychange', function() {
     if (!document.hidden) {
         console.log('Page became visible, checking for updates...');
+        if (USE_CLOUD) {
+            loadProductsFromCloud();
+            return;
+        }
+
         checkForDataUpdates();
-        checkRealTimeUpdate(); // Also check real-time updates
         renderFiles();
         renderHotFiles();
     }
@@ -1904,13 +1964,17 @@ function generateAIResponse(message) {
 // === 5. EVENT LISTENERS ===
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Main.js loaded - DOM ready');
-    
-    // Initialize sample data if empty
-    initializeSampleData();
-    
-    // Render files
-    renderFiles();
-    renderHotFiles();
+
+    if (USE_CLOUD) {
+        loadProductsFromCloud();
+    } else {
+        // Initialize sample data if empty
+        initializeSampleData();
+
+        // Render files
+        renderFiles();
+        renderHotFiles();
+    }
     renderMonsters(); // Render monsters section
     renderTopupData(); // Render topup data section
     updateDownloadsBadge();
